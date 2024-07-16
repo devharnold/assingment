@@ -69,3 +69,60 @@ void displayBook() {
     }
 }
 
+// Function to borrow a book
+void borrowBook() {
+    int userID;
+    char ISBN[20];
+
+    printf("Enter your userID: \n");
+    scanf("%d", &userID);
+    printf("What is the ISBN of the book you want to borrow?: \n");
+    scanf("%s", ISBN);
+
+    for (int i = 0; i < userCount; i++) {
+        if (users[i].userID == userID) {
+            if (strcmp(users[i].borrowedISBN, "") != 0) {
+                printf("Book already borrowed, cannot borrow another book!\n");
+                return;
+            }
+            for (int j = 0; j < bookCount; j++) {
+                if (strcmp(lib[j].ISBN, ISBN) == 0 && lib[j].available) {
+                    lib[j].available = false;
+                    strcpy(users[i].borrowedISBN, ISBN);
+                    printf("Success: Book borrowed successfully\n");
+                    return;
+                }
+            }
+            printf("Book not found!\n");
+            return;
+        }
+    }
+    printf("User not found!\n");
+}
+
+// Function to return a borrowed book
+void returnBook() {
+    int userID;
+    printf("Enter your userID: \n");
+    scanf("%d", &userID);
+
+    for (int i = 0; i < userCount; i++) {
+        if (users[i].userID == userID) {
+            if (strcmp(users[i].borrowedISBN, "") == 0) {
+                printf("User has not borrowed any book.\n");
+                return;
+            }
+            for (int j = 0; j < bookCount; j++) {
+                if (strcmp(lib[j].ISBN, users[i].borrowedISBN) == 0) {
+                    lib[j].available = true;
+                    strcpy(users[i].borrowedISBN, "");
+                    printf("Thanks for returning the book!\n");
+                    return;
+                }
+            }
+        }
+    }
+    printf("User not found!\n");
+}
+
+
