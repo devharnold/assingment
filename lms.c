@@ -82,7 +82,7 @@ void borrowBook() {
     for (int i = 0; i < userCount; i++) {
         if (users[i].userID == userID) {
             if (strcmp(users[i].borrowedISBN, "") != 0) {
-                printf("Book already borrowed, cannot borrow another book!\n");
+                printf("Book already borrowed, cannot borrow this book book!\n");
                 return;
             }
             for (int j = 0; j < bookCount; j++) {
@@ -125,4 +125,56 @@ void returnBook() {
     printf("User not found!\n");
 }
 
+// Function to list book statuses
+void listBookStatus() {
+    for (int i = 0; i < bookCount; i++) {
+        printf("Title: %s\n", lib[i].book_title);
+        if (lib[i].available) {
+            printf("Availability: Available\n");
+        } else {
+            printf("Availability: Not Available\n");
+        }
+    }
+}
 
+// Main function
+int main() {
+    int choice;
+    while (true) {
+        printf("1. Add book info\n");
+        printf("2. Display book info\n");
+        printf("3. Add user\n");
+        printf("4. Borrow book\n");
+        printf("5. Return book\n");
+        printf("6. List book information\n");
+        printf("7. Exit\n");
+        printf("Please enter your choice: \n");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                addBook();
+                break;
+            case 2:
+                displayBook();
+                break;
+            case 3:
+                addUser();
+                break;
+            case 4:
+                borrowBook();
+                break;
+            case 5:
+                returnBook();
+                break;
+            case 6:
+                listBookStatus();
+                break;
+            case 7:
+                exit(0);
+            default:
+                printf("Invalid choice. Please enter a number between 1 and 7.\n");
+        }
+    }
+    return 0;
+}
