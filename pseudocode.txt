@@ -1,0 +1,28 @@
+Start
+	Define the struct of the library
+		- Declare book title as string and set limit of desired characters[60]
+		- declare book author as string and set limit of desired characters[50]
+		- declare isbn as a string
+		- set available as boolean-> either true or false
+	Define the struct of the user
+		- userID should be set to an integer
+		- name should be set as a string
+	
+	Set lib as array of the library and set maximum limit
+	set users as array of users and set maximum limit
+	initialize bookCount as 0
+	initialize userCount as 0
+
+	Define a function to add user:
+		it asks the user for the userID
+		inputs the userCount the userID
+		asks user for the name
+		input userCount the name
+	
+	Define a function to add a book
+		it asks the user for the bookTitle
+                inputs the lib[bookCount] the bookTitle
+                asks user for the bookAuthor
+                input lib[bookCount] the bookAuthor
+
+

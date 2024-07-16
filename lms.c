@@ -141,9 +141,9 @@ void listBookStatus() {
 int main() {
     int choice;
     while (true) {
-        printf("1. Add book info\n");
-        printf("2. Display book info\n");
-        printf("3. Add user\n");
+        printf("1. Add user\n");
+        printf("2. Add book\n");
+        printf("3. Display book after add\n");
         printf("4. Borrow book\n");
         printf("5. Return book\n");
         printf("6. List book information\n");
@@ -153,13 +153,13 @@ int main() {
 
         switch (choice) {
             case 1:
-                addBook();
+                addUser();
                 break;
             case 2:
-                displayBook();
+                addBook();
                 break;
             case 3:
-                addUser();
+                displayBook();
                 break;
             case 4:
                 borrowBook();
