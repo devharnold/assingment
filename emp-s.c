@@ -5,6 +5,10 @@
  *
  * Upon success return 0 with final result else, -1 with error message
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 // payroll system data structure
 Payroll system struct {
