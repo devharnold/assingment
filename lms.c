@@ -1,15 +1,21 @@
+/**
+ * C program that illustrates how a library system works
+ * Allows users to borrow and return books
+ * Upon success, execute with status 0, otherwise -1 with error message
+ */
+
 #include <stdio.h>  // Standard I/O
 #include <stdlib.h> // Standard library
 #include <string.h> // String handling
 #include <stdbool.h> // Boolean type
 
-// Structure for library books
-struct library {
-    char book_title[60];   // Name of the book
-    char book_author[50];  // Name of the book author
-    char ISBN[20];         // Book ISBN as a string
-    bool available;        // Availability status
-};
+// Data Structure for books
+struct Book {
+	title char[100];
+	author char[50];
+	book_ISBN int[20];
+	availability_status bool;
+}
 
 // Structure for users
 struct user {
@@ -26,9 +32,6 @@ void returnBook();
 void listBookStatus();
 void addUser();
 
-// Global variables
-struct library lib[100000]; // Limit number of books to 100000
-struct user users[10000];  // Limit number of users to 10000
 int bookCount = 0;        // Initialize book count to 0
 int userCount = 0;        // Initialize user count to 0
 
@@ -81,13 +84,16 @@ void borrowBook() {
 
     for (int i = 0; i < userCount; i++) {
         if (users[i].userID == userID) {
+		//compare two strings
             if (strcmp(users[i].borrowedISBN, "") != 0) {
                 printf("Book already borrowed, cannot borrow this book book!\n");
                 return;
             }
             for (int j = 0; j < bookCount; j++) {
+		    //compare two strings
                 if (strcmp(lib[j].ISBN, ISBN) == 0 && lib[j].available) {
                     lib[j].available = false;
+		    //copy string
                     strcpy(users[i].borrowedISBN, ISBN);
                     printf("Success: Book borrowed successfully\n");
                     return;
@@ -108,6 +114,7 @@ void returnBook() {
 
     for (int i = 0; i < userCount; i++) {
         if (users[i].userID == userID) {
+		//compare two strings - users and borrowedISBN
             if (strcmp(users[i].borrowedISBN, "") == 0) {
                 printf("User has not borrowed any book.\n");
                 return;
@@ -175,6 +182,7 @@ int main() {
             default:
                 printf("Invalid choice. Please enter a number between 1 and 7.\n");
         }
+	break;
     }
     return 0;
 }

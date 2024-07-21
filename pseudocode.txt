@@ -1,10 +1,10 @@
 Start
-	Define the struct of the library
+	Define the data structure of the library
 		- Declare book title as string and set limit of desired characters[60]
 		- declare book author as string and set limit of desired characters[50]
 		- declare isbn as a string
 		- set available as boolean-> either true or false
-	Define the struct of the user
+	Define the data structure of the user
 		- userID should be set to an integer
 		- name should be set as a string
 	
@@ -25,4 +25,32 @@ Start
                 asks user for the bookAuthor
                 input lib[bookCount] the bookAuthor
 
+	Define a function to display book information
+		asks the user bookTitle, Author and ISBN
+		if book is available:
+			print available
+		else:
+			print not available
 
+	Define a function to allow a user to borrow a book
+		asks for the userID, and the Book ISBN 
+		checks if book is already borrowed as we perform string comparison
+		if book is already borrowed:
+			print: Book already borrowed, not available
+		if book is available, allow user to borrow and
+			print: book borrowed successfully
+
+	Define a function to return a book
+		asks for the userID
+		checks if the user borrowed any book
+		if user borrowed a book, check if the book ISBN matches the book 
+		print: book returned successfully
+
+	Define a function to list book status
+		performs a book count
+		if books available:
+			print: book available
+		else:
+			print: book not available
+
+	Define the main method function with switch cases, that allow users to seamlessly interact with the system developed.
