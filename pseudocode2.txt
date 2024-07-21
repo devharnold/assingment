@@ -1,3 +1,43 @@
-Employee pay pseudo code
+Eployee payroll system code
 
+Define a Payroll system data structure
+	Employee employees;
+	int num employees;
+
+Define the employee data structure
+	employee_id int;
+	name char;
+	hourly_rate float;
+	hours_worked float;
+
+Define function prototypes
+	addEmployee();
+	calculate_hours_worked();
+	calculate_salary();
+	display_employee_details();
+
+Define a function to add an employee
+	Takes in employeeID, name and the hourly rate
+
+Define a function to calculate hours worked
+	Takes in employeeID and the hours worked
+	Returns the total hours worked by the employee after calcuation
+
+Define a function to calculate salary
+	Takes in the employee's ID
+	Takes in total hours worked
+	Multiplies the total hours worked by the hourly rate pay
+	Returns the total salary an employee is suppossed to be paid
+
+Define a function to display employee details
+	Takes in employee id
+	Returns the total hours worked, total pay
+
+Define the main method
+	Takes in user input(preferrably numbers)
+	Performs loop using switch case function to check if input can be readed as per system's requirements
+	Reads the user's input
+	Prints the final result
+
+Exits the program with status 0
 

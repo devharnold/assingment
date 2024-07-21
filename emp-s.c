@@ -31,7 +31,7 @@ Payroll system payr_sys;
 //function prototypes
 void addEmployee();
 void calculate_hours_worked();
-void determine_salary();
+void calculate_salary();
 void display_employee_details();
 
 
@@ -121,6 +121,7 @@ int main() {
 			default:
 				printf("Error: Please Enter a valid choice. Number from 1 - 5!...\n");
 		}
+		break;
 	}
 	return 0;
 }
